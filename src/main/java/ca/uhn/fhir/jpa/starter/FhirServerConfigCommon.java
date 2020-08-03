@@ -175,12 +175,18 @@ public class FhirServerConfigCommon {
   @Bean(destroyMethod = "close")
   public BasicDataSource dataSource() throws ClassNotFoundException, NoSuchMethodException, IllegalAccessException, InvocationTargetException, InstantiationException {
     BasicDataSource retVal = new BasicDataSource();
+    retVal.setDriver(new com.microsoft.sqlserver.jdbc.SQLServerDriver());
+    retVal.setUrl("jdbc:sqlserver://aims-ews.database.windows.net;databaseName=fhir-test;user=peeteli;password=M-ighty123;"); 
+  
+
+    /*
     Driver driver = (Driver) Class.forName(HapiProperties.getDataSourceDriver()).getConstructor().newInstance();
     retVal.setDriver(driver);
     retVal.setUrl(HapiProperties.getDataSourceUrl());
     retVal.setUsername(HapiProperties.getDataSourceUsername());
     retVal.setPassword(HapiProperties.getDataSourcePassword());
     retVal.setMaxTotal(HapiProperties.getDataSourceMaxPoolSize());
+    */
     return retVal;
   }
 

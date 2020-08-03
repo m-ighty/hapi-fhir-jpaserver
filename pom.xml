@@ -141,11 +141,18 @@
         </dependency>
 
         <!-- This example uses H2 embedded database. If you are using another database such as Mysql or Oracle, you may omit the following dependencies and replace them with an appropriate database client
-            dependency for your database platform. -->
+            dependency for your database platform. 
         <dependency>
             <groupId>com.h2database</groupId>
             <artifactId>h2</artifactId>
+        </dependency> -->
+        <!-- https://mvnrepository.com/artifact/com.microsoft.sqlserver/mssql-jdbc -->
+        <dependency>
+            <groupId>com.microsoft.sqlserver</groupId>
+            <artifactId>mssql-jdbc</artifactId>
+            <version>8.2.2.jre11</version>
         </dependency>
+
 
         <!-- webjars -->
         <dependency>
@@ -278,6 +285,10 @@
                 <artifactId>jetty-maven-plugin</artifactId>
 					 <version>${jetty_version}</version>
                 <configuration>
+                    <httpConnector>
+                        <!--host>localhost</host-->
+                        <port>9999</port>
+                    </httpConnector>
                     <webApp>
                         <contextPath>/hapi-fhir-jpaserver</contextPath>
                         <allowDuplicateFragmentNames>true</allowDuplicateFragmentNames>
