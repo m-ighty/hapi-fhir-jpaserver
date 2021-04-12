@@ -2,6 +2,8 @@ package ca.uhn.fhir.jpa.starter;
 
 import javax.servlet.ServletException;
 
+import ca.uhn.fhir.jpa.starter.interceptors.AuthInterceptor;
+
 public class JpaRestfulServer extends BaseJpaRestfulServer {
 
   private static final long serialVersionUID = 1L;
@@ -10,8 +12,9 @@ public class JpaRestfulServer extends BaseJpaRestfulServer {
   protected void initialize() throws ServletException {
     super.initialize();
 
-    // Add your own customization here
+    registerInterceptor(new AuthInterceptor());
 
+    // Add your own customization here
   }
 
 }

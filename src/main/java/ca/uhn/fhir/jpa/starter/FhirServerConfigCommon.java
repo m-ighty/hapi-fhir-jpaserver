@@ -176,7 +176,8 @@ public class FhirServerConfigCommon {
   public BasicDataSource dataSource() throws ClassNotFoundException, NoSuchMethodException, IllegalAccessException, InvocationTargetException, InstantiationException {
     BasicDataSource retVal = new BasicDataSource();
     retVal.setDriver(new com.microsoft.sqlserver.jdbc.SQLServerDriver());
-    retVal.setUrl("jdbc:sqlserver://aims-ews.database.windows.net;databaseName=fhir-test;user=peeteli;password=M-ighty123;"); 
+    retVal.setUrl(HapiProperties.getDataSourceUrl());
+    //retVal.setUrl("jdbc:sqlserver://aims-ews.database.windows.net;databaseName=fhir-test;user=peeteli;password=M-ighty123;"); 
   
 
     /*
